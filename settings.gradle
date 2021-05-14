@@ -1,0 +1,4 @@
+include ':faceunity'
+include ':mmdemo'
+include ':mmsdk'
+rootProject.name = "MMSDK"

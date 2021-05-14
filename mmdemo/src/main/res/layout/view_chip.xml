@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="32dp"
+    android:background="@drawable/sel_bg_chip"
+    android:gravity="center"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="8dp"
+    android:textAlignment="gravity"
+    android:textColor="@color/color_text_chip"
+    android:textSize="12sp"
+    tools:text="320x480" />

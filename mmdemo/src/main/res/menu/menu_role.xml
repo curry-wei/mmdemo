@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_role_audience"
+        android:title="观众" />
+    <item
+        android:id="@+id/action_role_broadcaster"
+        android:title="主播" />
+</menu>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="cloud.bjx.mm.android.ui.LiveVideoActivity" />
+
+        <variable
+            name="viewModel"
+            type="cloud.bjx.mm.android.viewmodel.LiveVideoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2B2B2B"
+        tools:context=".ui.LiveVideoActivity">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/layout_flex_box"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:animateLayoutChanges="true"
+            app:alignContent="center"
+            app:alignItems="center"
+            app:flexDirection="row"
+            app:flexWrap="wrap"
+            app:justifyContent="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_channel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="monospace"
+            android:text="@{viewModel.channelName}"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="channel id" />
+
+        <TextView
+            android:id="@+id/iv_face_detect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toStartOf="@id/btn_close"
+            app:layout_constraintStart_toStartOf="@id/text_channel_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="11dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{()->viewModel.leaveChannel()}"
+            android:src="@drawable/ic_exit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <cloud.bjx.mm.android.fulive.ui.control.BeautyControlView
+            android:id="@+id/fu_beauty_control"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/btn_switch_camera"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_switch_camera"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_rounded_transparent"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:onClick="@{()->activity.actionSwitchCamera()}"
+            android:src="@drawable/ic_switch_camera"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btn_mute_video" />
+
+        <ImageView
+            android:id="@+id/btn_mute_video"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_rounded_transparent"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:onClick="@{()->activity.actionMuteLocalVideo()}"
+            android:src="@drawable/ic_video_enabled"
+            app:layout_constraintBottom_toBottomOf="@id/btn_switch_camera"
+            app:layout_constraintLeft_toRightOf="@id/btn_switch_camera"
+            app:layout_constraintRight_toLeftOf="@id/btn_mute_audio" />
+
+        <ImageView
+            android:id="@+id/btn_mute_audio"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_rounded_transparent"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:onClick="@{()->activity.actionMuteLocalAudio()}"
+            android:src="@drawable/ic_audio_enabled"
+            app:layout_constraintBottom_toBottomOf="@id/btn_switch_camera"
+            app:layout_constraintLeft_toRightOf="@id/btn_mute_video"
+            app:layout_constraintRight_toLeftOf="@id/btn_speaker" />
+
+        <ImageView
+            android:id="@+id/btn_speaker"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_rounded_transparent"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:onClick="@{()->viewModel.actionEnableSpeaker()}"
+            android:src="@drawable/ic_speaker_enabled"
+            app:layout_constraintBottom_toBottomOf="@id/btn_switch_camera"
+            app:layout_constraintLeft_toRightOf="@id/btn_mute_audio"
+            app:layout_constraintRight_toLeftOf="@id/btn_video_record" />
+
+        <ImageView
+            android:id="@+id/btn_video_record"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_rounded_transparent"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:onClick="@{()->activity.actionEnableVideoRecord()}"
+            android:src="@drawable/video_recorder_ic"
+            app:layout_constraintBottom_toBottomOf="@id/btn_switch_camera"
+            app:layout_constraintLeft_toRightOf="@id/btn_speaker"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

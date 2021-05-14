@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="cloud.bjx.mm.android.ui.SettingsActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground"
+        android:orientation="vertical"
+        tools:context=".ui.SettingsActivity">
+
+        <cloud.bjx.mm.android.widget.InfoCardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/info_card_height"
+            app:ic_detail="@{activity.sdkVersion}"
+            app:ic_divider="none"
+            app:ic_title="SDK Version" />
+
+<!--        <cloud.bjx.mm.android.widget.InfoCardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/info_card_height"
+            app:ic_detail="@{activity.sdkBuildDate}"
+            app:ic_divider="top"
+            app:ic_title="SDK Build Date" />-->
+
+        <cloud.bjx.mm.android.widget.InfoCardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/info_card_height"
+            app:ic_detail="@{activity.userId}"
+            app:ic_divider="top"
+            app:ic_title="User Id" />
+
+        <cloud.bjx.mm.android.widget.InfoCardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/info_card_height"
+            android:onClick="@{()->activity.actionAppKey()}"
+            app:ic_detail="@{activity.appKey}"
+            app:ic_divider="top"
+            app:ic_title="App Key" />
+
+        <cloud.bjx.mm.android.widget.InfoCardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/info_card_height"
+            android:onClick="@{activity::actionLogLevel}"
+            app:ic_detail="@{activity.logLevel}"
+            app:ic_divider="top"
+            app:ic_title="Log Level" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/colorError"
+            android:onClick="@{() -> activity.actionLogout()}"
+            android:text="退出登录"
+            android:textColor="@color/white"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+</layout>

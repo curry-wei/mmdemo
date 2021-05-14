@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="InfoCardView">
+        <attr name="ic_title" format="string" />
+        <attr name="ic_detail" format="string" />
+        <attr name="ic_divider" format="enum">
+            <enum name="none" value="0" />
+            <enum name="top" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="both" value="3" />
+        </attr>
+    </declare-styleable>
+
+
+    <!--FULive 相关-->
+
+    <!-- DiscreteSeekBar specific attributes -->
+    <declare-styleable name="Theme">
+        <attr name="discreteSeekBarStyle" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="DiscreteSeekBar">
+        <attr name="dsb_min" format="integer|dimension" />
+        <attr name="dsb_max" format="integer|dimension" />
+        <attr name="dsb_value" format="integer|dimension" />
+        <attr name="dsb_mirrorForRtl" format="boolean" />
+        <attr name="dsb_allowTrackClickToDrag" format="boolean" />
+        <attr name="dsb_progressColor" format="color|reference" />
+        <attr name="dsb_trackColor" format="color|reference" />
+        <attr name="dsb_indicatorTextAppearance" format="reference" />
+        <attr name="dsb_indicatorColor" format="color|reference" />
+        <attr name="dsb_indicatorElevation" format="dimension" />
+        <attr name="dsb_indicatorFormatter" format="string|reference" />
+        <attr name="dsb_rippleColor" format="color|reference" />
+        <attr name="dsb_indicatorPopupEnabled" format="boolean" />
+        <attr name="dsb_trackHeight" format="integer|dimension" />
+        <attr name="dsb_trackBaseHeight" format="integer|dimension" />
+        <attr name="dsb_scrubberHeight" format="integer|dimension" />
+        <attr name="dsb_thumbSize" format="integer|dimension" />
+        <attr name="dsb_indicatorSeparation" format="integer|dimension" />
+    </declare-styleable>
+
+    <!--For DiscreteSeekBar-->
+    <style name="Widget.DiscreteSeekBar" parent="android:Widget">
+        <item name="dsb_indicatorTextAppearance">@style/Widget.DiscreteIndicatorTextAppearance
+        </item>
+        <item name="dsb_progressColor">@color/dsb_progress_color_list</item>
+        <item name="dsb_trackColor">@color/dsb_track_color_list</item>
+        <item name="dsb_rippleColor">@color/dsb_ripple_color_list</item>
+        <item name="dsb_indicatorColor">@color/dsb_progress_color</item>
+        <item name="dsb_indicatorElevation">4dp</item>
+        <item name="dsb_mirrorForRtl">true</item>
+    </style>
+
+    <style name="Widget.DiscreteIndicatorTextAppearance" parent="android:TextAppearance.Small">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:padding">6dp</item>
+    </style>
+
+    <declare-styleable name="BeautyBox">
+        <attr name="checked" format="boolean" />
+        <attr name="open" format="boolean" />
+        <attr name="checked_model" format="integer">
+            <flag name="radio" value="1" />
+            <flag name="open" value="2" />
+            <flag name="open_double" value="3" />
+        </attr>
+        <attr name="drawable_open_normal" format="reference" />
+        <attr name="drawable_open_checked" format="reference" />
+        <attr name="drawable_close_normal" format="reference" />
+        <attr name="drawable_close_checked" format="reference" />
+        <attr name="text_normal" format="string" />
+        <attr name="text_double" format="string" />
+        <attr name="textColor_normal" format="reference|color" />
+        <attr name="textColor_checked" format="reference|color" />
+    </declare-styleable>
+
+</resources>
